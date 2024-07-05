@@ -51,5 +51,5 @@ app.get("/",(req,res)=>{
 })
 app.listen(process.env.PORT,()=>{
     connect()
-    console.log(`server is running at ${PORT}`)
+    console.log(`server is running at http://localhost:${PORT}`)
 })
