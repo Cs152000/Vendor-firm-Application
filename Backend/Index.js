@@ -12,7 +12,7 @@ import multer from "multer"
 const app=express();
 dotenv.config();
 app.use(cors({
-    origin:["http://localhost:5173"],
+    origin:["https://66876b054948c2d3f22e2a89--stately-gelato-e81b31.netlify.app/"],
     methods:["POST","GET","DELETE"],
     cresentials:true
 }))
