@@ -10,11 +10,7 @@ import multer from "multer"
 
 const app=express();
 dotenv.config();
-app.use(cors({
-    origin:["https://66876b054948c2d3f22e2a89--stately-gelato-e81b31.netlify.app/"],
-    methods:["POST","GET","DELETE"],
-    cresentials:true
-}))
+app.use(cors())
 const connect=async(req,res)=>{
     try{
    await  mongoose.connect(process.env.MONGO)
@@ -38,6 +34,7 @@ const storage = multer.diskStorage({
   })
   
   const upload = multer({storage })
+const PORT=process.env.PORT
 
 app.use("/vendor",vendorRoutes)
 app.use("/firm",firmRoutes)
@@ -49,7 +46,7 @@ app.post("/uploads",upload.single("image"),(req,res)=>{
 app.get("/",(req,res)=>{
     res.send("hello world")
 })
-app.listen(process.env.PORT,()=>{
+app.listen(PORT,()=>{
     connect()
-    console.log(`server is running at http://localhost:${PORT}`)
+    console.log(`Server is running on ${PORT}`)
 })
