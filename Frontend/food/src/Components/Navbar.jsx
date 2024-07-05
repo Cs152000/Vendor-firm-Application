@@ -14,7 +14,7 @@ const navigate=useNavigate()
     <section className='bg-white shadow-md font-bold text-xl'>
       
      <div className='flex justify-between  mx-2 p-3 cursor-pointer'>
-          <div>Suby</div>
+          <div>Vfood</div>
           <div className='flex gap-2 items-center'>
           <Link to="/register" className='flex gap-1 items-center'>
           <div><MdPersonAddAlt1 /> </div>
