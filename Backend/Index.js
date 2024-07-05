@@ -8,7 +8,6 @@ import productRoutes from "./Routes/productRoutes.js"
 import bodyParser from "body-parser"
 import multer from "multer"
 
-
 const app=express();
 dotenv.config();
 app.use(cors({
