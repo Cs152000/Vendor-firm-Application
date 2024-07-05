@@ -10,7 +10,9 @@ import multer from "multer"
 
 const app=express();
 dotenv.config();
-app.use(cors())
+app.use(cors(
+  
+))
 const connect=async(req,res)=>{
     try{
    await  mongoose.connect(process.env.MONGO)

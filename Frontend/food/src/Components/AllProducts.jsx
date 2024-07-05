@@ -27,7 +27,7 @@ console.log("use effect included to show products")
  },[])
              // delete products by productId
  const deleteProductById=async(productId)=>{
-  const response=await axios.delete(`http://localhost:3001/product/${productId}`)
+  const response=await axios.delete(`https://react-food-backend-o6lc.onrender.com/product/${productId}`)
   try{
       if(response){
     setProducts(products.filter(product=> product._id !== productId))
