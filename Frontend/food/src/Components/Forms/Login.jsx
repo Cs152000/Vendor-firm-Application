@@ -18,7 +18,7 @@ const Login = () => {
       setMessage('');
 
       try {
-        const response = await axios.post('http://localhost:3001/vendor/login', {
+        const response = await axios.post('https://react-food-backend-o6lc.onrender.com/vendor/login', {
           email,
           password
         }); 
@@ -34,7 +34,7 @@ const Login = () => {
         }
           const vendorId=savedResponse.vendorId
           localStorage.setItem("vendorId",vendorId)
-          const vendorResponse=await axios.get(`http://localhost:3001/vendor/single-vendor/${vendorId}`)
+          const vendorResponse=await axios.get(`https://react-food-backend-o6lc.onrender.com/vendor/single-vendor/${vendorId}`)
           const vendorData=await vendorResponse.data
         if(vendorData){
           const vendorFirmId=vendorData.vendorFirmId;

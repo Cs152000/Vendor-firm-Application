@@ -52,7 +52,7 @@ if(category.includes(value)){
       } 
 
       // sending the data from frontend to backend through axios and using headers
-      const response = await axios.post('http://localhost:3001/firm/add-firm', {
+      const response = await axios.post('https://react-food-backend-o6lc.onrender.com/firm/add-firm', {
         firmName,area,category,region,offer,image
       },
     {headers:{
