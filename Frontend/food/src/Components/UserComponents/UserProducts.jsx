@@ -8,7 +8,7 @@ const UserProducts = () => {
       const productHandler=async()=>{
     try{
         const firmId=localStorage.getItem("firmId")
-      const response=await axios.get(`http://localhost:3001/product/${firmId}/products`)
+      const response=await axios.get(`https://react-food-backend-o6lc.onrender.com/product/${firmId}/products`)
       const savedResponse=await response.data
       setProducts(savedResponse)
       console.log(savedResponse)
