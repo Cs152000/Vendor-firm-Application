@@ -11,7 +11,7 @@ try{
   if(!firmId){
     console.log("firm id not found")
   }
-  const response=await axios.get(`http://localhost:3001/product/${firmId}/products`)
+  const response=await axios.get(https://react-food-backend-o6lc.onrender.com/product/${firmId}/products`)
   const savedResponse=await response.data
   setProducts(savedResponse)
   console.log(savedResponse)
@@ -30,7 +30,7 @@ console.log("use effect included to show products")
   const confirmDelete = window.confirm("Are you sure you want to delete this product?");
   if(confirmDelete){
     try{
-      const response=await axios.delete(`http://localhost:3001/product/${productId}`)
+      const response=await axios.delete(`https://react-food-backend-o6lc.onrender.com/product/${productId}`)
       if(response){
     setProducts(products.filter(product=> product._id !== productId))
    console.log("product deleted successfully.",response)
