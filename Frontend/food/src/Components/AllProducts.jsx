@@ -57,7 +57,7 @@ console.log("use effect included to show products")
       <ul className=' gap-2 grid grid-cols-1  items-center justify-center my-4 mx-4'>
       {products.map((item,index)=>(
          <li className='border border-black bg-yellow-50 shadow-lg w-full h-[110px] px-4 py-2 flex gap-6' key={index}>
-          <div className=' w-[30vw] flex align-center my-auto shadow-md h-full'><img className='w-full h-full border border-black p-1 rounded-md'  src={"http://localhost:3001/images/"+item.image} /></div>
+          <div className=' w-[30vw] flex align-center my-auto shadow-md h-full'><img className='w-full h-full border border-black p-1 rounded-md'  src={"https://react-food-backend-o6lc.onrender.com/images/"+item.image} /></div>
           <div className='h-1/2 text-sm font-bold w-[40vw]'>
           <p>{item.productName}</p>
           <div>{item.category}</div>
