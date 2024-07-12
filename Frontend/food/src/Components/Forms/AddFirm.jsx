@@ -67,7 +67,7 @@ if(category.includes(value)){
       })
 
       // sending the data from frontend to backend through axios and using headers
-      const response = await axios.post('http://localhost:3001/firm/add-firm',formData,
+      const response = await axios.post('https://react-food-backend-o6lc.onrender.com/firm/add-firm',formData,
     {headers:{
       "token":`${loginToken}`
     }}
