@@ -18,7 +18,7 @@ const Register = () => {
   setMessage('');
   
   try {
-    const response = await axios.post('http://localhost:3001/vendor/register', {
+    const response = await axios.post('https://react-food-backend-o6lc.onrender.com/vendor/register', {
 username,email,password
     });
     
