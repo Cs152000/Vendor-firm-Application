@@ -8,7 +8,7 @@ const FirmDetails = () => {
 
     const FirmHandler=async()=>{
 try{
-  const response=await axios.get(`http://localhost:3001/firm/all-firms`)
+  const response=await axios.get(`https://react-food-backend-o6lc.onrender.com/firm/all-firms`)
   const savedResponse=await response.data
   setFirms(savedResponse)
   console.log(savedResponse)
