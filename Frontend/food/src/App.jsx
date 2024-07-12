@@ -10,6 +10,7 @@ import AddProducts from "./Components/Forms/AddProducts"
 import AllProducts from "./Components/AllProducts"
 import NotFound from "./Components/Forms/NotFound"
 import UserDetails from "./Components/Forms/UserDetails"
+import UserProducts from "./Components/UserComponents/UserProducts"
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <div>
       <Routes>
       <Route path="/" element={ <LandingPage/>}/>
+      <Route path="/add-items" element={ <UserProducts/>}/>
       <Route path="/home" element={ <DashBoard/>}/>
       <Route path="/home/dashboard" element={ <DashBoard/>}/>
       <Route path="/login" element={ <Login/>}/>

@@ -1,6 +1,7 @@
 import React,{ useState} from 'react'
 import {useNavigate } from 'react-router-dom'
 import axios from 'axios'
+import upload from "/upload.png";
 
 const AddFirm = () => {
   const navigate=useNavigate()
@@ -13,13 +14,16 @@ const AddFirm = () => {
   const [error, setError] = useState(null);
   const [messages, setMessages] = useState('');
 
-                      //check box
-  const handleImageUpload = (e) => {
-    e.preventDefault();
-    const savedImage=e.target.files[0];
-    setImage(savedImage)
+  const onInputChange = (e) => {
+    console.log(e.target.files)
+    const selectedImage = e.target.files[0];
+    if (selectedImage) {
+      setImage(selectedImage);
+    }
   };
 
+                      //check box
+  
   const handleCategory = (e) => {
     e.preventDefault();
     const value=e.target.value
@@ -50,11 +54,20 @@ if(category.includes(value)){
       if(!loginToken){
         console.error("user not authenticated")
       } 
+      const formData=new FormData()
+      formData.append("firmName",firmName)
+      formData.append("area",area)
+      formData.append("offer",offer)
+      formData.append("image",image)
+      category.forEach((value)=>{
+        formData.append("category",value)
+      })
+      region.forEach((value)=>{
+        formData.append("region",value)
+      })
 
       // sending the data from frontend to backend through axios and using headers
-      const response = await axios.post('https://react-food-backend-o6lc.onrender.com/firm/add-firm', {
-        firmName,area,category,region,offer,image
-      },
+      const response = await axios.post('http://localhost:3001/firm/add-firm',formData,
     {headers:{
       "token":`${loginToken}`
     }}
@@ -65,8 +78,8 @@ if(category.includes(value)){
         setArea("")
         setCategory([])
         setRegion([])
-        setOffer("")
         setImage(null)
+        setOffer("")
         setMessages('firm added successful!');
         setError(null)
        alert("firm added successfully.")
@@ -85,18 +98,14 @@ console.log(apple)
       setError('only one firm can be added to the vendor');
       alert("vendor can have only one firm")
       console.log(error)
-      setTimeout(()=>{
-        navigate("/home")
-      },2000)
-      console.log(error)
   }  
 }
   return (
-      <div className='m-2 p-2 text-md  w-1/2 border border-rose-400 shadow-2xl align-middle mx-auto'>
+      <div className='m-2 p-2 text-md bg-red-400  w-1/2 border border-rose-400 shadow-2xl align-middle mx-auto'>
     <div className='text-center font-semibold'>Add Firm</div>
     <hr className="h-px my-2 bg-rose-400 border-0"/>
     <div className=' my-2'>
-              <label htmlFor="Firm Name" className='block text-base  text-left'>Firm Name</label>
+              <label htmlFor="FirmName" className='block text-base  text-left'>Firm Name</label>
             <input type="text" id="FirmName" className='border p-1 w-full' placeholder='Add Firm Name' onChange={(e)=>{setFirmName(e.target.value)}}
            />
             <label htmlFor="Area" className='block text-base  text-left'>Area</label>
@@ -157,8 +166,9 @@ console.log(apple)
             <label className='block text-base  text-left'>Offer</label>
             <input type="text" id="Offer" className='border p-1  w-full' placeholder='Enter Offer' onChange={(e)=>{setOffer(e.target.value)}}
             />
-            <label className='block text-base  text-left'>Firm Image</label>
-            <input type="file" id="image" className='border py-2 px-1 w-full' placeholder='SEND IMAGE' onChange={handleImageUpload}
+            <p>Upload Image</p>
+           <label htmlFor='image' className='block text-base text-left'><img className='w-20 h-16 border border-black p-1 rounded-md' src={image?URL.createObjectURL(image):`${upload}`}/></label>
+            <input type="file" id="image" hidden required className='border py-2 px-1 w-full' placeholder='SEND IMAGE'  onChange={onInputChange}
             />
             <div>
             <button type="submit" onClick={handleFirm} className='bg-blue-500 text-white px-3 py-1 rounded my-2'>Submit</button>

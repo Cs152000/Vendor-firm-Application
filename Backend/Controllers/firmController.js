@@ -1,28 +1,22 @@
 import Vendor from '../Models/Vendor.js';
 import Firm from '../Models/Firm.js';
 import multer from "multer";
-import path from "path";
-
 const storage = multer.diskStorage({
-    destination: (req, file, cb) => {
-      cb(null, 'uploads/');
-    },
-    filename: (req, file, cb) => {
-      cb(null, Date.now() + path.extname(file.originalname)); // e.g., 1612885074531.jpg
-    },
-  });
-  const upload = multer({ storage: storage });
+  destination: "uploads",
+  filename:(req, file, cb) =>{
+    return cb(null, `${Date.now()}${file.originalname}`)
+  }
+})
 
+const upload = multer({storage:storage })
   
 const addFirm=async(req,res)=>{
 //adding Images through Multer
     try{
-    const {firmName,area,category,region,offer}=req.body;
-   
-    const image= req.file ? req.file.filename:undefined;
-
+      const {firmName,area,category,region,offer}=req.body;
+      const image=req.file?req.file.filename:undefined;
+      
     const vendor=await Vendor.findById(req.vendorId)
-
     if(!vendor){
         return res.status(401).json({error:"vendor not found"})
     }
@@ -48,6 +42,17 @@ catch(error){
  console.error(error)
 }
 }
+const getAllFirms=async(req,res)=>{
+  try{
+      const firms=await Firm.find();
+      res.json(firms)
+      console.log(firms)
+  }
+  catch(err){
+      console.log(err)
+     res.status(500).json({error:"internal server error"})
+  }
+}
 const deleteFirmById=async(req,res)=>{
   try{
     const firmId=req.params.firmId;
@@ -64,4 +69,4 @@ res.status(201).json("firm deleted successfully")
   }
 }
 
-export default {addFirm:[upload.single("image"),addFirm],deleteFirmById};
+export default {addFirm:[upload.single("image"),addFirm],getAllFirms,deleteFirmById};

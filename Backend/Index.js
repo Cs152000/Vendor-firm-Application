@@ -41,9 +41,7 @@ const PORT=process.env.PORT
 app.use("/vendor",vendorRoutes)
 app.use("/firm",firmRoutes)
 app.use("/product",productRoutes)
-app.post("/uploads",upload.single("image"),(req,res)=>{
-    console.log(req.file)
-})
+app.use("/images",express.static("uploads"))
         //Get Method
 app.get("/",(req,res)=>{
     res.send("hello world")

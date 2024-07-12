@@ -1,16 +1,19 @@
-import React, { useState } from 'react'
+import React from 'react'
 import Navbar from '../Components/Navbar'
 import Hero from '../Components/UserComponents/Hero';
 import FooterSection from '../Components/UserComponents/FooterSection';
-import VendorDetails from '../Components/UserComponents/VendorDetails';
+import FirmDetails from '../Components/UserComponents/FirmDetails';
 
 
 const LandingPage = () => {
   return (
-    <div className='bg-secondary h-screen'>
+    <div className=' text-white h-fit'>
 <Navbar/>
+<br/>
 <Hero/>
-<VendorDetails/>
+<hr />
+<FirmDetails/>
+<hr/>
 <FooterSection/>
     </div>
   )

@@ -11,10 +11,10 @@ const navigate=useNavigate()
     navigate("/login")
   }
   return (
-    <section className='bg-white shadow-md font-bold text-xl'>
+    <section className='bg-primary w-full fixed shadow-md font-bold text-xl'>
       
      <div className='flex justify-between  mx-2 p-3 cursor-pointer'>
-          <div>Vfood</div>
+          <div className='text-white text-2xl font-bold'>Vfood</div>
           <div className='flex gap-2 items-center'>
           <Link to="/register" className='flex gap-1 items-center'>
           <div><MdPersonAddAlt1 /> </div>

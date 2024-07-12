@@ -3,22 +3,19 @@ import Product from '../Models/Product.js';
 import multer from "multer";
 
 const storage = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, './uploads')
-  },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + '-' + file.originalname)
+  destination: "uploads",
+  filename:(req, file, cb) =>{
+    return cb(null, `${Date.now()}${file.originalname}`)
   }
 })
 
-const upload = multer({storage })
-  
+const upload = multer({storage:storage })
                        //Adding the products to firm
  const addProduct=async(req,res)=>{
     try{
         const { productName,price,category,bestSeller,description}=req.body;
        
-        const image=req.file?req.file.filename:undefined;
+        const image=req.file?`${req.file.filename}`:undefined
 
       const firmId= req.params.firmId;
         const firm=await Firm.findById(firmId)

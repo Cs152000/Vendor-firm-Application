@@ -2,7 +2,7 @@ import React from 'react'
 
 const FooterSection = () => {
   return (
-    <section className='bg-def  font-bold h-48 flex gap-6 items-center justify-center'>
+    <section className='bg-primary  font-bold h-48 flex gap-6 items-center justify-center'>
      <div>
 Company
 <ul className='text-sm leading-6'>

@@ -12,6 +12,7 @@ import mongoose from "mongoose";
       category: {
         type: [{
           type:String,
+          required:true,
           enum:["veg","non-veg"]
         }]},
         bestSeller: {
@@ -21,7 +22,7 @@ import mongoose from "mongoose";
             type:String
         },
         image:{
-          type:String
+          type:String,
       },
       firm: [{ type: mongoose.Schema.Types.ObjectId, 
         ref: 'Firm' }]
