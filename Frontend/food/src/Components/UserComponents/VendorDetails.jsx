@@ -6,7 +6,7 @@ const VendorDetails = () => {
     const [vendors,setVendors]=useState([])
     const VendorHandler=async()=>{
 try{
-  const response=await axios.get(`http://localhost:3001/vendor/all-vendors`)
+  const response=await axios.get(`https://react-food-backend-o6lc.onrender.com/vendor/all-vendors`)
   const savedResponse=await response.data
   setVendors(savedResponse)
   console.log(savedResponse)
