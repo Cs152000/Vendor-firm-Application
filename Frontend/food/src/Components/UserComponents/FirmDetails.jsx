@@ -35,7 +35,7 @@ console.log("use effect included to show vendors")
     {firms.map((item,index)=>(
        <li className='border text-black border-red-600  bg-secondary rounded-md  shadow-lg w-full h-72 px-4 py-2 flex gap-6' key={index}>
         <div className='h-full text-md font-bold p-2'>
-        <div className='w-full h-24 '><img className='w-full h-24 hover:transition-all' src={"http://localhost:3001/images/"+item.image} /></div>
+        <div className='w-full h-24 '><img className='w-full h-24 hover:transition-all' src={"https://react-food-backend-o6lc.onrender.com/images/"+item.image} /></div>
         <p className='bg-yellow-400 text-xl px-2 py-1 rounded-md font-bold text-blue-600'>{item.firmName}</p>
         <p>{item.area}</p>
         <p className='h-12'>OFFERS : {item.offer}</p>
