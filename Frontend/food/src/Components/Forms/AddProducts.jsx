@@ -49,7 +49,7 @@ const AddProducts = () => {
 
 
       // sending the data from frontend to backend through axios and using headers
-      const response = await axios.post(`http://localhost:3001/product/add-products/${firmId}`,formData
+      const response = await axios.post(`https://react-food-backend-o6lc.onrender.com/product/add-products/${firmId}`,formData
 );
       if (response.data) {
         setProductName("")
